@@ -13,21 +13,12 @@
 		2FABA7AE27AFEC6B0045F09B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FABA7AC27AFEC6B0045F09B /* Main.storyboard */; };
 		2FABA7B027AFEC6D0045F09B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FABA7AF27AFEC6D0045F09B /* Assets.xcassets */; };
 		2FABA7B327AFEC6D0045F09B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FABA7B127AFEC6D0045F09B /* LaunchScreen.storyboard */; };
-		2FABA7C127AFECE00045F09B /* PLITextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FABA7BF27AFECA50045F09B /* PLITextField.framework */; };
-		2FABA7C227AFECE00045F09B /* PLITextField.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FABA7BF27AFECA50045F09B /* PLITextField.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2FABA7D327B0002A0045F09B /* Example2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 2FABA7D127B000290045F09B /* Example2.PNG */; };
 		2FABA7D427B0002A0045F09B /* Example1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 2FABA7D227B000290045F09B /* Example1.PNG */; };
+		2FCDEA6727C7EA38000AC025 /* PLIIconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDEA6427C7EA38000AC025 /* PLIIconTextField.swift */; };
+		2FCDEA6827C7EA38000AC025 /* PLIPhoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDEA6527C7EA38000AC025 /* PLIPhoneTextField.swift */; };
+		2FCDEA6927C7EA38000AC025 /* PLITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDEA6627C7EA38000AC025 /* PLITextField.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		2FABA7BE27AFECA50045F09B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2FABA7BA27AFECA50045F09B /* PLITextField.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2FABA76527AFE9E90045F09B;
-			remoteInfo = PLITextField;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		2FABA7C327AFECE00045F09B /* Embed Frameworks */ = {
@@ -36,7 +27,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2FABA7C227AFECE00045F09B /* PLITextField.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,9 +42,11 @@
 		2FABA7AF27AFEC6D0045F09B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FABA7B227AFEC6D0045F09B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FABA7B427AFEC6D0045F09B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2FABA7BA27AFECA50045F09B /* PLITextField.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PLITextField.xcodeproj; path = ../../PLITextField/PLITextField.xcodeproj; sourceTree = "<group>"; };
 		2FABA7D127B000290045F09B /* Example2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Example2.PNG; sourceTree = "<group>"; };
 		2FABA7D227B000290045F09B /* Example1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Example1.PNG; sourceTree = "<group>"; };
+		2FCDEA6427C7EA38000AC025 /* PLIIconTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLIIconTextField.swift; sourceTree = "<group>"; };
+		2FCDEA6527C7EA38000AC025 /* PLIPhoneTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLIPhoneTextField.swift; sourceTree = "<group>"; };
+		2FCDEA6627C7EA38000AC025 /* PLITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLITextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +54,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FABA7C127AFECE00045F09B /* PLITextField.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +63,7 @@
 		2FABA79A27AFEC6B0045F09B = {
 			isa = PBXGroup;
 			children = (
-				2FABA7BA27AFECA50045F09B /* PLITextField.xcodeproj */,
+				2FCDEA6327C7EA38000AC025 /* Classes */,
 				2FABA7A527AFEC6B0045F09B /* PLITextFieldDemo */,
 				2FABA7A427AFEC6B0045F09B /* Products */,
 				2FABA7C027AFECE00045F09B /* Frameworks */,
@@ -102,14 +93,6 @@
 			path = PLITextFieldDemo;
 			sourceTree = "<group>";
 		};
-		2FABA7BB27AFECA50045F09B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2FABA7BF27AFECA50045F09B /* PLITextField.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		2FABA7C027AFECE00045F09B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +107,16 @@
 				2FABA7D127B000290045F09B /* Example2.PNG */,
 			);
 			path = Examples;
+			sourceTree = "<group>";
+		};
+		2FCDEA6327C7EA38000AC025 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2FCDEA6427C7EA38000AC025 /* PLIIconTextField.swift */,
+				2FCDEA6527C7EA38000AC025 /* PLIPhoneTextField.swift */,
+				2FCDEA6627C7EA38000AC025 /* PLITextField.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,28 +166,12 @@
 			mainGroup = 2FABA79A27AFEC6B0045F09B;
 			productRefGroup = 2FABA7A427AFEC6B0045F09B /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 2FABA7BB27AFECA50045F09B /* Products */;
-					ProjectRef = 2FABA7BA27AFECA50045F09B /* PLITextField.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				2FABA7A227AFEC6B0045F09B /* PLITextFieldDemo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		2FABA7BF27AFECA50045F09B /* PLITextField.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PLITextField.framework;
-			remoteRef = 2FABA7BE27AFECA50045F09B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2FABA7A127AFEC6B0045F09B /* Resources */ = {
@@ -216,9 +193,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FCDEA6727C7EA38000AC025 /* PLIIconTextField.swift in Sources */,
+				2FCDEA6827C7EA38000AC025 /* PLIPhoneTextField.swift in Sources */,
 				2FABA7AB27AFEC6B0045F09B /* ViewController.swift in Sources */,
 				2FABA7A727AFEC6B0045F09B /* AppDelegate.swift in Sources */,
 				2FABA7A927AFEC6B0045F09B /* SceneDelegate.swift in Sources */,
+				2FCDEA6927C7EA38000AC025 /* PLITextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
