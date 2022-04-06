@@ -1,0 +1,22 @@
+{
+  "name": "PLITextField",
+  "version": "0.1.0",
+  "summary": "A short description of PLITextField.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Choprarahul/PLITextField",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Choprarahul": "37024455+appsmall@users.noreply.github.com"
+  },
+  "source": {
+    "git": "https://github.com/Choprarahul/PLITextField.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "PLITextField/Classes/**/*"
+}

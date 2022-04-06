@@ -1,0 +1,6 @@
+framework module Pods_PLITextField_Example {
+  umbrella header "Pods-PLITextField_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

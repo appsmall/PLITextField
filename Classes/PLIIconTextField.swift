@@ -1,8 +1,8 @@
 //
 //  PLIIconTextField.swift
-//  PLIIconTextField
+//  PLITextField
 //
-//  Created by Rahul Chopra on 27/01/22.
+//  Created by Rahul Chopra on 06/04/22.
 //
 
 import Foundation
@@ -18,6 +18,19 @@ class PLIIconTextField: UIView {
     open var iconImageView: UIImageView!
     open var textField: UITextField!
     open var horizontalLine: UILabel!
+    var textChanged :(String) -> () = { _ in }
+    
+    @IBInspectable var activeLineColor: UIColor = .white {
+        didSet {
+            self.horizontalLine.backgroundColor = activeLineColor
+        }
+    }
+    
+    @IBInspectable var inactiveLineColor: UIColor = .white {
+        didSet {
+            self.horizontalLine.backgroundColor = inactiveLineColor
+        }
+    }
     
     @IBInspectable var iconImage: UIImage? = nil {
         didSet {
@@ -59,6 +72,10 @@ class PLIIconTextField: UIView {
 //            7: emailAddress // A type optimized for multiple email address entry (shows space @ . prominently).
 //            8: decimalPad // A number pad with a decimal point.
 //            9: twitter // A type optimized for twitter text entry (easy access to @ #)
+            
+            if keyboardType == 7 {
+                self.textField.autocapitalizationType = .none
+            }
         }
     }
     
@@ -83,11 +100,11 @@ class PLIIconTextField: UIView {
     }
     
     @objc func textDidBegin(notificaiton: NSNotification) {
-        self.horizontalLine.backgroundColor = AppColors.appOrange
+        self.horizontalLine.backgroundColor = activeLineColor
     }
     
     @objc func textDidEnd(notificaiton: NSNotification) {
-        self.horizontalLine.backgroundColor = AppColors.appGray
+        self.horizontalLine.backgroundColor = inactiveLineColor
     }
     
     @objc func textDidChange(notificaiton: NSNotification) {
@@ -115,9 +132,9 @@ class PLIIconTextField: UIView {
         iconLabel.text = "Password"
         iconLabel.textAlignment = .left
         if UIDevice.deviceType() == .pad {
-            iconLabel.font = UIFont.systemFont(ofSize: 14.0)
+            iconLabel.font = UIFont.systemFont(ofSize: 13.0)
         } else {
-            iconLabel.font = UIFont.systemFont(ofSize: 12.0)
+            iconLabel.font = UIFont.systemFont(ofSize: 11.0)
         }
         iconLabel.textColor = UIColor.init(white: 0.0, alpha: 0.4)
         iconLabel.isHidden = true
@@ -141,11 +158,10 @@ class PLIIconTextField: UIView {
         let textField = UITextField()
         textField.backgroundColor = .clear
         textField.placeholder = "Password"
-        textField.delegate = self
         if UIDevice.deviceType() == .pad {
-            textField.font = UIFont.systemFont(ofSize: 18.0)
+            textField.font = UIFont.systemFont(ofSize: 17.0)
         } else {
-            textField.font = UIFont.systemFont(ofSize: 15.0)
+            textField.font = UIFont.systemFont(ofSize: 14.0)
         }
         self.textField = textField
         addSubview(textField)
@@ -160,48 +176,53 @@ class PLIIconTextField: UIView {
     }
     
     func setupConstraints() {
-        horizontalLine.translatesAutoresizingMaskIntoConstraints = false
-        horizontalLine.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        horizontalLine.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        horizontalLine.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        horizontalLine.heightAnchor.constraint(equalToConstant: 0.6).isActive = true
-        
-        iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 2).isActive = true
-        
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 10).isActive = true
-        textField.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        
-        if UIDevice.deviceType() == .pad {
-            textField.heightAnchor.constraint(equalToConstant: 32).isActive = true
-            textField.bottomAnchor.constraint(equalTo: horizontalLine.topAnchor, constant: -8).isActive = true
+        if #available(iOS 13.0, *) {
+            horizontalLine.translatesAutoresizingMaskIntoConstraints = false
+            horizontalLine.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+            horizontalLine.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+            horizontalLine.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+            horizontalLine.heightAnchor.constraint(equalToConstant: 0.6).isActive = true
             
-            iconImageView.heightAnchor.constraint(equalToConstant: 23).isActive = true
-            iconImageView.widthAnchor.constraint(equalToConstant: 23).isActive = true
-        } else {
-            textField.heightAnchor.constraint(equalToConstant: 30).isActive = true
-            textField.bottomAnchor.constraint(equalTo: horizontalLine.topAnchor, constant: -5).isActive = true
+            iconImageView.translatesAutoresizingMaskIntoConstraints = false
+            iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 2).isActive = true
             
-            iconImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-            iconImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+            textField.translatesAutoresizingMaskIntoConstraints = false
+            textField.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 10).isActive = true
+            textField.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+            
+            if UIDevice.deviceType() == .pad {
+                textField.heightAnchor.constraint(equalToConstant: 32).isActive = true
+                textField.bottomAnchor.constraint(equalTo: horizontalLine.topAnchor, constant: -8).isActive = true
+                
+                iconImageView.heightAnchor.constraint(equalToConstant: 23).isActive = true
+                iconImageView.widthAnchor.constraint(equalToConstant: 23).isActive = true
+            } else {
+                textField.heightAnchor.constraint(equalToConstant: 30).isActive = true
+                textField.bottomAnchor.constraint(equalTo: horizontalLine.topAnchor, constant: -5).isActive = true
+                
+                iconImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+                iconImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+            }
+            
+            
+            iconImageView.centerYAnchor.constraint(equalTo: textField.centerYAnchor, constant: 0).isActive = true
+            
+            iconLabel.translatesAutoresizingMaskIntoConstraints = false
+            iconLabel.leadingAnchor.constraint(equalTo: textField.leadingAnchor).isActive = true
+            iconLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
+            iconLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         }
-        
-        
-        iconImageView.centerYAnchor.constraint(equalTo: textField.centerYAnchor, constant: 0).isActive = true
-        
-        iconLabel.translatesAutoresizingMaskIntoConstraints = false
-        iconLabel.leadingAnchor.constraint(equalTo: textField.leadingAnchor).isActive = true
-        iconLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        iconLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
     
-}
-
-
-extension PLIIconTextField: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    
+    // MARK: LISTENER FOR TEXT FIELD
+    func bind(callback :@escaping (String) -> ()) {
+        textChanged = callback
+        self.textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+  
+    @objc func textFieldDidChange(_ textField :UITextField) {
+        print(textField.text!)
+        textChanged(textField.text!)
     }
 }

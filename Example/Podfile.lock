@@ -1,0 +1,25 @@
+PODS:
+  - FlagPhoneNumber (0.8.0):
+    - FlagPhoneNumber/libPhoneNumberiOS (= 0.8.0)
+  - FlagPhoneNumber/libPhoneNumberiOS (0.8.0)
+  - PLITextField (0.1.0)
+
+DEPENDENCIES:
+  - FlagPhoneNumber
+  - PLITextField (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - FlagPhoneNumber
+
+EXTERNAL SOURCES:
+  PLITextField:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FlagPhoneNumber: 3712455b95f66cb0f2016fef7d9e34cddf8c7f9a
+  PLITextField: 6cac1531826b891f59f62f3e180f3280f6396ea3
+
+PODFILE CHECKSUM: f9fa1ea2147f4856fe977e18beb46cd07be44258
+
+COCOAPODS: 1.11.3

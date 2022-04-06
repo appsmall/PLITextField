@@ -1,0 +1,6 @@
+framework module PLITextField {
+  umbrella header "PLITextField-umbrella.h"
+
+  export *
+  module * { export * }
+}
