@@ -22,6 +22,5 @@ DESC
   s.platform     = :ios
   s.ios.deployment_target = '13.0'
   s.source           = { :git => 'https://github.com/appsmall/PLITextField.git', :tag => s.version.to_s }
-
-# the Pre-Compiled Framework:
   s.source_files          = 'Classes/*.{h,m,swift}'
+end

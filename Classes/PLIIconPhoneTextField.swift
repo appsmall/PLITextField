@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import FlagPhoneNumber
 
 @IBDesignable
 class PLIIconPhoneTextField: UIView {
@@ -241,7 +240,7 @@ class PLIIconPhoneTextField: UIView {
     
     
     @objc func actionPhoneCode(button: UIButton) {
-        let fpnField = FPNTextField()
+        /*let fpnField = FPNTextField()
         let listController: FPNCountryListViewController = FPNCountryListViewController(style: .grouped)
         fpnField.displayMode = .list
 //        fpnField.delegate = self
@@ -252,7 +251,7 @@ class PLIIconPhoneTextField: UIView {
         }
         UIApplication.rootViewController().present(listController, animated: true, completion: nil)
         
-        self.closureDidSelectPhoneCode?()
+        self.closureDidSelectPhoneCode?()*/
     }
     
     
